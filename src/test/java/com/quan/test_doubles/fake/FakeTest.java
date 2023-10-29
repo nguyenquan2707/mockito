@@ -6,6 +6,9 @@ import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+
 public class FakeTest {
 
     @Test
@@ -15,6 +18,6 @@ public class FakeTest {
         bookService.addBook(new Book("id1", "Java", 100D, LocalDate.now()));
         bookService.addBook(new Book("id2", "JavaScript", 90D, LocalDate.now()));
 
-
+        assertEquals(2, bookService.numberOfBook());
     }
 }
