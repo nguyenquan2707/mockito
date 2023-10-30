@@ -1,7 +1,9 @@
 package com.quan.stub;
 
-import com.quan.fake.repo.Book;
-import com.quan.fake.repo.BookRepository;
+import com.quan.stub.Book;
+import com.quan.stub.BookRepository;
+
+import java.util.List;
 
 public class BookService {
 
@@ -12,11 +14,13 @@ public class BookService {
         this.bookRepository = bookRepository;
     }
 
-    public void addBook(Book book) {
-        bookRepository.save(book);
-    }
-
-    public int numberOfBook() {
-        return bookRepository.findAll().size();
+    public List<Book> getNewBooksWithAppliedDiscount(int discount, int days) {
+        List<Book> newBooks = bookRepository.findNewBooks(days);
+        for (Book book: newBooks) {
+            int price = book.getPrice();
+            int newPrice = price - (discount * price/100);
+            book.setPrice(newPrice);
+        }
+        return newBooks;
     }
 }

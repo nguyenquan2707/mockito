@@ -5,7 +5,7 @@ import java.time.LocalDate;
 public class Book {
     private String bookId;
     private String title;
-    private Double price;
+    private Integer price;
 
     private LocalDate publishedDate;
 
@@ -32,11 +32,11 @@ public class Book {
         this.title = title;
     }
 
-    public Double getPrice() {
+    public Integer getPrice() {
         return price;
     }
 
-    public void setPrice(Double price) {
+    public void setPrice(Integer price) {
         this.price = price;
     }
 
