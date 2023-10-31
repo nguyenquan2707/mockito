@@ -9,7 +9,7 @@ public class Book {
 
     private LocalDate publishedDate;
 
-    public Book(String bookId, String title, Double price, LocalDate publishedDate) {
+    public Book(String bookId, String title, Integer price, LocalDate publishedDate) {
         this.bookId = bookId;
         this.title = title;
         this.price = price;
