@@ -16,8 +16,9 @@ public class StubTest {
         BookRepository bookRepository = new BookRepositoryStub();
         BookService bookService = new BookService(bookRepository);
 
-        List<Book> newBooksWithAppliedDiscount = bookService.getNewBooksWithAppliedDiscount(5, 7);
+        List<Book> newBooksWithAppliedDiscount = bookService.getNewBooksWithAppliedDiscount(10, 7);
         Assertions.assertEquals(2, newBooksWithAppliedDiscount.size());
+        Assertions.assertEquals(225, newBooksWithAppliedDiscount.get(0).getPrice());
     }
 
 }
