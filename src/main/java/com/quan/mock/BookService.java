@@ -1,6 +1,4 @@
-package com.quan.spy;
-
-import com.quan.dummy.EmailService;
+package com.quan.mock;
 
 public class BookService {
 
