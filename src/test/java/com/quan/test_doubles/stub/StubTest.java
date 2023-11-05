@@ -39,7 +39,7 @@ public class StubTest {
 
         Mockito.when(bookRepository.findNewBooks(7)).thenReturn(books);
 
-        Assertions.assertEquals(2, bookService.getNewBooksWithAppliedDiscount(10, 7));
+        Assertions.assertEquals(2, bookService.getNewBooksWithAppliedDiscount(10, 7).size());
 
     }
 

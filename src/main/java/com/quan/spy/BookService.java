@@ -1,7 +1,5 @@
 package com.quan.spy;
 
-import com.quan.dummy.EmailService;
-
 public class BookService {
 
     private BookRepository bookRepository;
