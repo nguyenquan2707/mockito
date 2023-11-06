@@ -3,6 +3,7 @@ package com.quan.test_doubles.behavior.verify;
 
 import com.quan.behavior.verify.Book;
 import com.quan.behavior.verify.BookRepository;
+import com.quan.behavior.verify.BookRequest;
 import com.quan.behavior.verify.BookService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -39,5 +40,16 @@ public class BookServerTest {
         bookService.addBook(book);
 
         Mockito.verify(bookRepository, Mockito.times(0)).save(book);
+    }
+
+    @Test
+    public void testSaveBookWithBookRequest() {
+
+        BookRequest bookRequest = new BookRequest("Mockito", 600, LocalDate.now());
+
+        Book book = new Book(null, "Mockito",601, LocalDate.now());
+
+        bookService.addBook(bookRequest);
+        Mockito.verify(bookRepository, Mockito.times(1)).save(book);
     }
 }
