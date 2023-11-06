@@ -33,4 +33,14 @@ public class BookService {
     public void addBook(Book book) {
         bookRepository.save(book);
     }
+
+    public void addBook(BookRequest book) {
+
+        Book book1 = new Book();
+        book1.setTitle(book.getTitle());
+        book1.setPrice(book.getPrice());
+        book1.setPublishedDate(book.getPublishedDate());
+
+        bookRepository.save(book1);
+    }
 }
