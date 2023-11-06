@@ -32,11 +32,36 @@ public class BookServerTest3 {
         Book book = new Book("1234", "Mockito",250, LocalDate.now());
         Book book2 = new Book("1235", "Mockito5",250, LocalDate.now());
 
-        Mockito.when(bookRepository.findByBookId("1111")).thenReturn(book, book);
+//        Mockito.when(bookRepository.findByBookId("1111")).thenReturn(book, book);
+        Mockito.when(bookRepository.findByBookId("1111"))
+                .thenReturn(book)
+                .thenReturn(book);
 
         int totalCost = bookService.calculateTotalCost(bookIds);
 
         Assertions.assertEquals(500, totalCost);
         Mockito.verify(bookRepository, Mockito.times(2)).findByBookId("1111");
+    }
+
+    @Test
+    public void testSaveBook() {
+        Book book = new Book(null, "Mockito",250, LocalDate.now());
+
+        Mockito.doNothing().when(bookRepository).save(book); // using equal to check book from save with book pass to addBook
+        bookService.addBook(book);
+
+        Mockito.verify(bookRepository, Mockito.times(1)).save(book);
+
+    }
+
+    @Test
+    public void testSaveBookWithBookRequest() {
+        Book book = new Book(null, "Mockito",250, LocalDate.now());
+
+        Mockito.doNothing().when(bookRepository).save(book); // using equal to check book from save with book pass to addBook
+        bookService.addBook(book);
+
+        Mockito.verify(bookRepository, Mockito.times(1)).save(book);
+
     }
 }

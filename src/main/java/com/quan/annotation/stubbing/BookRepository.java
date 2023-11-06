@@ -7,4 +7,6 @@ public interface BookRepository {
     List<Book> findNewBooks(int days);
 
     Book findByBookId(String id);
+
+    void save(Book book);
 }
