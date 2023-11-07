@@ -74,4 +74,11 @@ public class BookServerTest {
         bookService.addBook(bookRequest);
         Mockito.verify(bookRepository, Mockito.never()).save(book);
     }
+
+    @Test
+    public  void testUpdatePrice() {
+        bookService.updatePrice(null, 1000);
+
+        Mockito.verifyNoInteractions(bookRepository);
+    }
 }
