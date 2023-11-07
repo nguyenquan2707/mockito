@@ -58,9 +58,9 @@ public class BookServerTest3 {
     @Test
     public void testSaveBookWithBookRequest() {
 
-        BookRequest bookRequest = new BookRequest("Mockito", 250, LocalDate.now());
+        BookRequest bookRequest = new BookRequest("Mockito", 500, LocalDate.now());
 
-        Book book = new Book(null, "Mockito",250, LocalDate.now());
+        Book book = new Book(null, "Mockito",500, LocalDate.now());
         Mockito.doNothing().when(bookRepository).save(book);
 
         bookService.addBook(bookRequest);

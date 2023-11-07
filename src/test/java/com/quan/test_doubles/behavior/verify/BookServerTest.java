@@ -47,9 +47,20 @@ public class BookServerTest {
 
         BookRequest bookRequest = new BookRequest("Mockito", 600, LocalDate.now());
 
-        Book book = new Book(null, "Mockito",601, LocalDate.now());
+        Book book = new Book(null, "Mockito",600, LocalDate.now());
 
         bookService.addBook(bookRequest);
         Mockito.verify(bookRepository, Mockito.times(1)).save(book);
+    }
+
+    @Test
+    public void testSaveBookWithBookRequest2() {
+
+        BookRequest bookRequest = new BookRequest("Mockito", 300, LocalDate.now());
+
+        Book book = new Book(null, "Mockito",300, LocalDate.now());
+
+        bookService.addBook(bookRequest);
+        Mockito.verify(bookRepository, Mockito.times(0)).save(book);
     }
 }
