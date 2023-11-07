@@ -81,4 +81,15 @@ public class BookServerTest {
 
         Mockito.verifyNoInteractions(bookRepository);
     }
+
+    @Test
+    public  void testUpdatePrice2() {
+        Book book = new Book(null, "Mockito",1000, LocalDate.now());
+        Mockito.when(bookRepository.findBookById("1234")).thenReturn(book);
+        bookService.updatePrice("1234", 1000);
+
+        Mockito.verify(bookRepository).findBookById("1234");
+        //after this, no method of bookRepository is callled
+        Mockito.verifyNoMoreInteractions(bookRepository);
+    }
 }
