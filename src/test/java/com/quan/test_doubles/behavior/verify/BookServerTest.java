@@ -7,6 +7,7 @@ import com.quan.behavior.verify.BookRequest;
 import com.quan.behavior.verify.BookService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InOrder;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
@@ -91,5 +92,17 @@ public class BookServerTest {
         Mockito.verify(bookRepository).findBookById("1234");
         //after this, no method of bookRepository is callled
         Mockito.verifyNoMoreInteractions(bookRepository);
+    }
+
+    @Test
+    public  void testUpdatePrice3() {
+        Book book = new Book(null, "Mockito",1000, LocalDate.now());
+        Mockito.when(bookRepository.findBookById("1234")).thenReturn(book);
+        bookService.updatePrice("1234", 900);
+
+
+        InOrder inOrder = Mockito.inOrder(bookRepository);
+        inOrder.verify(bookRepository).save(book);
+        inOrder.verify(bookRepository).findBookById("1234");
     }
 }
