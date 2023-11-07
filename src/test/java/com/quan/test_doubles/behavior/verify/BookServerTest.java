@@ -63,4 +63,15 @@ public class BookServerTest {
         bookService.addBook(bookRequest);
         Mockito.verify(bookRepository, Mockito.times(0)).save(book);
     }
+
+    @Test
+    public void testSaveBookWithBookRequestWithGreaterPrice() {
+
+        BookRequest bookRequest = new BookRequest("Mockito", 300, LocalDate.now());
+
+        Book book = new Book(null, "Mockito",300, LocalDate.now());
+
+        bookService.addBook(bookRequest);
+        Mockito.verify(bookRepository, Mockito.never()).save(book);
+    }
 }
