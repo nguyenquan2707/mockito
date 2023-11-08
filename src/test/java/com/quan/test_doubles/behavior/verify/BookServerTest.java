@@ -102,7 +102,57 @@ public class BookServerTest {
 
 
         InOrder inOrder = Mockito.inOrder(bookRepository);
-        inOrder.verify(bookRepository).save(book);
         inOrder.verify(bookRepository).findBookById("1234");
+        inOrder.verify(bookRepository).save(book);
+    }
+
+    @Test
+    public void testSaveBookWithBookRequestWithGreaterPrice2() {
+
+        BookRequest bookRequest = new BookRequest("Mockito", 600, LocalDate.now());
+
+        Book book = new Book(null, "Mockito",600, LocalDate.now());
+
+        bookService.addBook(bookRequest);
+        bookService.addBook(bookRequest);
+        bookService.addBook(bookRequest);
+        Mockito.verify(bookRepository, Mockito.atLeast(2)).save(book);
+    }
+
+    @Test
+    public void testSaveBookWithBookRequestWithGreaterPrice3() {
+
+        BookRequest bookRequest = new BookRequest("Mockito", 600, LocalDate.now());
+
+        Book book = new Book(null, "Mockito",600, LocalDate.now());
+
+        bookService.addBook(bookRequest);
+        bookService.addBook(bookRequest);
+        bookService.addBook(bookRequest);
+        Mockito.verify(bookRepository, Mockito.atMost(4)).save(book);
+    }
+
+    @Test
+    public void testSaveBookWithBookRequestWithGreaterPrice4() {
+
+        BookRequest bookRequest = new BookRequest("Mockito", 600, LocalDate.now());
+
+        Book book = new Book(null, "Mockito",600, LocalDate.now());
+
+        bookService.addBook(bookRequest);
+//        bookService.addBook(bookRequest);
+        Mockito.verify(bookRepository, Mockito.atMostOnce()).save(book);
+    }
+
+    @Test
+    public void testSaveBookWithBookRequestWithGreaterPrice5() {
+
+        BookRequest bookRequest = new BookRequest("Mockito", 600, LocalDate.now());
+
+        Book book = new Book(null, "Mockito",600, LocalDate.now());
+
+        bookService.addBook(bookRequest);
+        bookService.addBook(bookRequest);
+        Mockito.verify(bookRepository, Mockito.atLeastOnce()).save(book);
     }
 }
