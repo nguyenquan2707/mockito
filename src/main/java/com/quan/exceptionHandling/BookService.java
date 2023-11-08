@@ -26,4 +26,13 @@ public class BookService {
         return totalPrice;
     }
 
+    public void addBook(Book book) {
+
+        try {
+            bookRepository.save(book);
+        } catch (SQLException e) {
+            //Log exception
+            throw new DatabaseWriteException("Cannot write book to database " + e.getMessage());
+        }
+    }
 }
