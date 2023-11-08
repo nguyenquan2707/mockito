@@ -4,17 +4,17 @@ Wanted but not invoked:
 bookRepository.save(
     com.quan.behavior.verify.Book@d51519a5
 );
--> at com.quan.test_doubles.behavior.verify.BookServerTest.testAddBook2(BookServerTest.java:41)
+-> at com.quan.test_doubles.behavior.verify.BookServiceTest.testAddBook2(BookServerTest.java:41)
 Actually, there were zero interactions with this mock.
 
 Wanted but not invoked:
 bookRepository.save(
     com.quan.behavior.verify.Book@d51519a5
 );
--> at com.quan.test_doubles.behavior.verify.BookServerTest.testAddBook2(BookServerTest.java:41)
+-> at com.quan.test_doubles.behavior.verify.BookServiceTest.testAddBook2(BookServerTest.java:41)
 Actually, there were zero interactions with this mock.
 
-	at com.quan.test_doubles.behavior.verify.BookServerTest.testAddBook2(BookServerTest.java:41)
+	at com.quan.test_doubles.behavior.verify.BookServiceTest.testAddBook2(BookServerTest.java:41)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)

@@ -5,14 +5,14 @@ bookRepository.save(
     com.quan.behavior.verify.Book@d5154409
 );
 Wanted *at least* 4 times:
--> at com.quan.test_doubles.behavior.verify.BookServerTest.testSaveBookWithBookRequestWithGreaterPrice2(BookServerTest.java:119)
+-> at com.quan.test_doubles.behavior.verify.BookServiceTest.testSaveBookWithBookRequestWithGreaterPrice2(BookServerTest.java:119)
 But was 3 times:
 -> at com.quan.behavior.verify.BookService.addBook(BookService.java:28)
 -> at com.quan.behavior.verify.BookService.addBook(BookService.java:28)
 -> at com.quan.behavior.verify.BookService.addBook(BookService.java:28)
 
 
-	at com.quan.test_doubles.behavior.verify.BookServerTest.testSaveBookWithBookRequestWithGreaterPrice2(BookServerTest.java:119)
+	at com.quan.test_doubles.behavior.verify.BookServiceTest.testSaveBookWithBookRequestWithGreaterPrice2(BookServerTest.java:119)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)

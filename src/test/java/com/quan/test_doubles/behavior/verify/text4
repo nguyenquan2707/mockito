@@ -2,7 +2,7 @@ missing method call of mock object.
 
 org.mockito.exceptions.misusing.UnfinishedVerificationException:
 Missing method call for verify(mock) here:
--> at com.quan.test_doubles.behavior.verify.BookServerTest.testUpdatePrice(BookServerTest.java:82)
+-> at com.quan.test_doubles.behavior.verify.BookServiceTest.testUpdatePrice(BookServerTest.java:82)
 
 Example of correct verification:
     verify(mock).doSomething()

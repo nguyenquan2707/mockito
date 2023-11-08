@@ -2,7 +2,7 @@
 
 org.mockito.exceptions.verification.NoInteractionsWanted:
 No interactions wanted here:
--> at com.quan.test_doubles.behavior.verify.BookServerTest.testUpdatePrice2(BookServerTest.java:93)
+-> at com.quan.test_doubles.behavior.verify.BookServiceTest.testUpdatePrice2(BookServerTest.java:93)
 But found this interaction on mock 'bookRepository':
 -> at com.quan.behavior.verify.BookService.updatePrice(BookService.java:41)
 ***
@@ -11,7 +11,7 @@ For your reference, here is the list of all invocations ([?] - means unverified)
 2. [?]-> at com.quan.behavior.verify.BookService.updatePrice(BookService.java:41)
 
 
-	at com.quan.test_doubles.behavior.verify.BookServerTest.testUpdatePrice2(BookServerTest.java:93)
+	at com.quan.test_doubles.behavior.verify.BookServiceTest.testUpdatePrice2(BookServerTest.java:93)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)

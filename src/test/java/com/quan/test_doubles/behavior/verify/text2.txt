@@ -4,7 +4,7 @@ org.mockito.exceptions.misusing.UnnecessaryStubbingException:
 Unnecessary stubbings detected.
 Clean & maintainable test code requires zero unnecessary code.
 Following stubbings are unnecessary (click to navigate to relevant line of code):
-  1. -> at com.quan.test_doubles.behavior.verify.BookServerTest.testSaveBookWithBookRequest(BookServerTest.java:51)
+  1. -> at com.quan.test_doubles.behavior.verify.BookServiceTest.testSaveBookWithBookRequest(BookServerTest.java:51)
 Please remove unnecessary stubbings or use 'lenient' strictness. More info: javadoc for UnnecessaryStubbingException class.
 
 	at org.mockito.junit.jupiter.MockitoExtension.afterEach(MockitoExtension.java:181)

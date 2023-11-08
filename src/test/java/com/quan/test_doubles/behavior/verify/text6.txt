@@ -4,7 +4,7 @@ org.mockito.exceptions.verification.VerificationInOrderFailure:
 Verification in order failure
 Wanted but not invoked:
 bookRepository.findBookById("1234");
--> at com.quan.test_doubles.behavior.verify.BookServerTest.testUpdatePrice3(BookServerTest.java:106)
+-> at com.quan.test_doubles.behavior.verify.BookServiceTest.testUpdatePrice3(BookServerTest.java:106)
 Wanted anywhere AFTER following interaction:
 bookRepository.save(
     com.quan.behavior.verify.Book@d515685c
@@ -12,7 +12,7 @@ bookRepository.save(
 -> at com.quan.behavior.verify.BookService.updatePrice(BookService.java:41)
 
 
-	at com.quan.test_doubles.behavior.verify.BookServerTest.testUpdatePrice3(BookServerTest.java:106)
+	at com.quan.test_doubles.behavior.verify.BookServiceTest.testUpdatePrice3(BookServerTest.java:106)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)

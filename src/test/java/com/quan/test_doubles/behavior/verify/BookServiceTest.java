@@ -16,7 +16,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import java.time.LocalDate;
 
 @ExtendWith(value = MockitoExtension.class)
-public class BookServerTest {
+public class BookServiceTest {
 
     @InjectMocks
     private BookService bookService;
