@@ -3,10 +3,12 @@ package com.quan.test_doubles.bdd.stubbing;
 import com.quan.bdd.stubbing.Book;
 import com.quan.bdd.stubbing.BookRepository;
 import com.quan.bdd.stubbing.BookService;
+import org.assertj.core.api.BDDAssertions;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.BDDMockito;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
@@ -44,10 +46,19 @@ public class StubTest {
     @DisplayName("given - New Books, When get New Books With Applied Discount Is Called, Then New Books With Discount Is Returned")
     public void test_GivenNewBooks_When_getNewBooksWithAppliedDiscountIsCalled_ThenNewBooksWithDiscountIsReturned() {
         //Arrange - Given
+        Book book = new Book("1234", "Mockito",250, LocalDate.now());
+        Book book2 = new Book("1235", "Mockito5",250, LocalDate.now());
 
+        List<Book> books = new ArrayList<>();
+        books.add(book);
+        books.add(book2);
+        BDDMockito.given(bookRepository.findNewBooks(7)).willReturn(books);
         //act -when
-
+        List<Book>  bookList = bookService.getNewBooksWithAppliedDiscount(10, 7);
         //Assert - Then
+        Assertions.assertEquals(2, bookList.size());
+        BDDAssertions.then(bookList).isNotNull();
+        BDDAssertions.then(bookList).size().isEqualTo(2);
     }
 
 }
