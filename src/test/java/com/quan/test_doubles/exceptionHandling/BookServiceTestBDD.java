@@ -25,8 +25,7 @@ public class BookServiceTestBDD {
     @Test
     public void testTotalPriceOfBook2() throws SQLException {
 
-        BDDMockito.given(bookRepository.findAllBooks());
-        Mockito.when(bookRepository.findAllBooks()).thenThrow(new SQLException("Database not available"));
+        BDDMockito.given(bookRepository.findAllBooks()).willThrow(SQLException.class);
         Assertions.assertThrows(DatabaseReadEXception.class, () -> bookService.getTotalPriceOfBook());
     }
 }
