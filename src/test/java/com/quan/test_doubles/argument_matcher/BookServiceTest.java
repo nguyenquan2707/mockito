@@ -39,10 +39,14 @@ public class BookServiceTest {
     public void testInvalidUseOfArgumentMatchers() {
         Book book = new Book(null, "Mockito",1000, LocalDate.now());
         Mockito.when(bookRepository
-                .findBookByTitleAndPublishedDate("Mockito", Mockito.any(LocalDate.class))).thenReturn(book);
+//                .findBookByTitleAndPublishedDate("Mockito", Mockito.any(LocalDate.class))).thenReturn(book);
+//                .findBookByTitleAndPublishedDate(Mockito.anyString(), Mockito.any(LocalDate.class))).thenReturn(book);
+                .findBookByTitleAndPublishedDate(Mockito.eq("Mockito"), Mockito.any(LocalDate.class))).thenReturn(book);
 
         Book actualBook = bookService.getBookByTitleAndPublishedDate("Mockito", LocalDate.now());
 
         Assertions.assertEquals("Mockito", actualBook.getTitle());
+        Assertions.assertEquals(LocalDate.now(), actualBook.getPublishedDate());
+        System.out.println(LocalDate.now());
     }
 }
