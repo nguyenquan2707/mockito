@@ -5,6 +5,7 @@ import com.quan.argument_matcher.Book;
 import com.quan.argument_matcher.BookRepository;
 import com.quan.argument_matcher.BookRequest;
 import com.quan.argument_matcher.BookService;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InOrder;
@@ -25,11 +26,23 @@ public class BookServiceTest {
     private BookRepository bookRepository;
 
     @Test
-    public  void testUpdatePrice2() {
+    public void testUpdatePrice2() {
         Book book = new Book(null, "Mockito",1000, LocalDate.now());
         Book book2 = new Book(null, "Mockito",900, LocalDate.now());
-        Mockito.when(bookRepository.findBookById(Mockito.any())).thenReturn(book);
+//        Mockito.when(bookRepository.findBookById(Mockito.any())).thenReturn(book);
+        Mockito.when(bookRepository.findBookById(Mockito.any(String.class))).thenReturn(book);
         bookService.updatePrice("xyz", 900);
         Mockito.verify(bookRepository).save(book2);
+    }
+
+    @Test
+    public void testInvalidUseOfArgumentMatchers() {
+        Book book = new Book(null, "Mockito",1000, LocalDate.now());
+        Mockito.when(bookRepository
+                .findBookByTitleAndPublishedDate("Mockito", Mockito.any(LocalDate.class))).thenReturn(book);
+
+        Book actualBook = bookService.getBookByTitleAndPublishedDate("Mockito", LocalDate.now());
+
+        Assertions.assertEquals("Mockito", actualBook.getTitle());
     }
 }

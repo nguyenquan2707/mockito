@@ -1,5 +1,7 @@
 package com.quan.argument_matcher;
 
+import java.time.LocalDate;
+
 public class BookService {
 
     private BookRepository bookRepository;
@@ -39,5 +41,10 @@ public class BookService {
         book.setPrice(updatePrice);
 
         bookRepository.save(book);
+    }
+
+
+    public Book getBookByTitleAndPublishedDate(String title, LocalDate publishDate) {
+        return bookRepository.findBookByTitleAndPublishedDate(title, publishDate);
     }
 }
