@@ -47,4 +47,8 @@ public class BookService {
     public Book getBookByTitleAndPublishedDate(String title, LocalDate publishDate) {
         return bookRepository.findBookByTitleAndPublishedDate(title, publishDate);
     }
+
+    public Book getBookByTitleAndPriceAndIsDigital(String title, int price, boolean isDigital) {
+        return bookRepository.findBookByTitleAndPriceAndIsDigital(title, price, isDigital);
+    }
 }

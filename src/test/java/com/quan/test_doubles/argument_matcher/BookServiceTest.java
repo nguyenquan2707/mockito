@@ -49,4 +49,17 @@ public class BookServiceTest {
         Assertions.assertEquals(LocalDate.now(), actualBook.getPublishedDate());
         System.out.println(LocalDate.now());
     }
+
+    @Test
+    public void testSpecificTypeOfArgumentMatchers() {
+        Book book = new Book(null, "Mockito",1000, LocalDate.now());
+        Mockito.when(bookRepository
+                .findBookByTitleAndPriceAndIsDigital("Mockito", 600, true)).thenReturn(book);
+
+        Book actualBook = bookService.getBookByTitleAndPublishedDate("Mockito", LocalDate.now());
+
+        Assertions.assertEquals("Mockito", actualBook.getTitle());
+        Assertions.assertEquals(LocalDate.now(), actualBook.getPublishedDate());
+        System.out.println(LocalDate.now());
+    }
 }

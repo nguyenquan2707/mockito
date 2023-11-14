@@ -10,4 +10,6 @@ public interface BookRepository {
     Book findBookById(String bookId);
 
     Book findBookByTitleAndPublishedDate(String title, LocalDate publishDate);
+
+    Book findBookByTitleAndPriceAndIsDigital(String title, int price, boolean isDigital);
 }

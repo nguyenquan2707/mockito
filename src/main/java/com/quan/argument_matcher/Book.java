@@ -10,11 +10,30 @@ public class Book {
 
     private LocalDate publishedDate;
 
+    public boolean isDigital() {
+        return isDigital;
+    }
+
+    public void setDigital(boolean digital) {
+        isDigital = digital;
+    }
+
+    private boolean isDigital;
+
     public Book(String bookId, String title, Integer price, LocalDate publishedDate) {
         this.bookId = bookId;
         this.title = title;
         this.price = price;
         this.publishedDate = publishedDate;
+    }
+
+
+    public Book(String bookId, String title, Integer price, LocalDate publishedDate, boolean isDigital) {
+        this.bookId = bookId;
+        this.title = title;
+        this.price = price;
+        this.publishedDate = publishedDate;
+        this.isDigital = isDigital;
     }
 
     public Book() {
