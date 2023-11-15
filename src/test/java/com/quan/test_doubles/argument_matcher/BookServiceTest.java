@@ -54,12 +54,11 @@ public class BookServiceTest {
     public void testSpecificTypeOfArgumentMatchers() {
         Book book = new Book(null, "Mockito",1000, LocalDate.now());
         Mockito.when(bookRepository
-                .findBookByTitleAndPriceAndIsDigital("Mockito", 600, true)).thenReturn(book);
+                .findBookByTitleAndPriceAndIsDigital(Mockito.anyString(), Mockito.anyInt(), Mockito.anyBoolean())).thenReturn(book);
 
-        Book actualBook = bookService.getBookByTitleAndPublishedDate("Mockito", LocalDate.now());
+        Book actualBook = bookService.getBookByTitleAndPriceAndIsDigital("Mockito",600, true);
 
         Assertions.assertEquals("Mockito", actualBook.getTitle());
         Assertions.assertEquals(LocalDate.now(), actualBook.getPublishedDate());
-        System.out.println(LocalDate.now());
     }
 }
