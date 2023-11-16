@@ -15,6 +15,8 @@ import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @ExtendWith(value = MockitoExtension.class)
 public class BookServiceTest {
@@ -60,5 +62,15 @@ public class BookServiceTest {
 
         Assertions.assertEquals("Mockito", actualBook.getTitle());
         Assertions.assertEquals(LocalDate.now(), actualBook.getPublishedDate());
+    }
+
+    @Test
+    public void testCollectionTypeArgumentMatcher() {
+        List<Book> books = new ArrayList<>();
+        Book book = new Book(null, "Mockito",1000, LocalDate.now());
+        books.add(book);
+        bookService.addBooks(books);
+
+        Mockito.verify(bookRepository).saveAll(Mockito.anyList()); //anySet ....
     }
 }

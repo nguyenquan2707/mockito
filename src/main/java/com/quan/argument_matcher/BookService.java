@@ -1,6 +1,7 @@
 package com.quan.argument_matcher;
 
 import java.time.LocalDate;
+import java.util.List;
 
 public class BookService {
 
@@ -16,6 +17,10 @@ public class BookService {
             return;
         }
         bookRepository.save(book);
+    }
+
+    public void addBooks(List<Book> books) {
+        bookRepository.saveAll(books);
     }
 
     public void addBook(BookRequest book) {
