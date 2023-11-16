@@ -73,4 +73,17 @@ public class BookServiceTest {
 
         Mockito.verify(bookRepository).saveAll(Mockito.anyList()); //anySet ....
     }
+
+    @Test
+    public void testStringTypeArgumentMatcher() {
+        Book book = new Book(null, "Mockito",1000, LocalDate.now());
+        Mockito.when(bookRepository
+//                .findBookByTitleAndPriceAndIsDigital(Mockito.startsWith("Mockito"), Mockito.anyInt(), Mockito.anyBoolean())).thenReturn(book);
+                .findBookByTitleAndPriceAndIsDigital(Mockito.contains("Mockito"), Mockito.anyInt(), Mockito.anyBoolean())).thenReturn(book);
+
+        Book actualBook = bookService.getBookByTitleAndPriceAndIsDigital("Mockito",600, true);
+
+        Assertions.assertEquals("Mockito", actualBook.getTitle());
+        Assertions.assertEquals(LocalDate.now(), actualBook.getPublishedDate());
+    }
 }
